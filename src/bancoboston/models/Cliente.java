@@ -1,6 +1,6 @@
 package bancoboston.models;
 
-import bancoboston.BancoBoston;
+import bancoboston.utilidades.Grafico;
 
 public class Cliente {
 	private String rut;
@@ -31,23 +31,22 @@ public class Cliente {
 	}
 
 	public boolean registrarCliente() {
-			System.out.println("\n\n________________________________________________________");
-			System.out.println("\nCliente registrado correctamente:\n" + "\nRut      : " + this.rut + "\nNombre   : "
+		Grafico.formatoExito("Cliente registrado correctamente:");
+		System.out.println("Rut      : " + this.rut + "\nNombre   : "
 					+ nombre + " " + apellidoPaterno + " " + apellidoMaterno + "\nDomicilio: " + domicilio + ", "
 					+ comuna + "\nTeléfono : " + telefono + "\nN° Cuenta: " + cuenta.getNumeroCuenta() + "\nSaldo    : "
-					+ BancoBoston.FORMATO_DINERO.format(cuenta.getSaldo()));
+					+ Grafico.FORMATO_DINERO.format(cuenta.getSaldo()));
 			return true;
 	}
 
 	public void mostrarInformacionCliente() {
-		System.out.println("\n\n________________________________________________________");
-		System.out.println("\n******** INFORMACION DEL CLIENTE ********\n");
+		Grafico.formatoTitulo("******** INFORMACION DEL CLIENTE ********");
 		System.out.println("Rut      : " + this.rut);
 		System.out.println("Nombre   : " + nombre + " " + apellidoPaterno + " " + apellidoMaterno);
 		System.out.println("Docimilio: " + domicilio + ", " + comuna);
 		System.out.println("Teléfono : " + telefono);
 		System.out.println("N° Cuenta: " + cuenta.getNumeroCuenta());
-		System.out.println("Saldo    : " + BancoBoston.FORMATO_DINERO.format(cuenta.getSaldo()));
+		System.out.println("Saldo    : " + Grafico.FORMATO_DINERO.format(cuenta.getSaldo()));
 	}
 
 	public String getRut() {
